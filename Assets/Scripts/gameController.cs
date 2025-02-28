@@ -22,11 +22,24 @@ public class gameController : MonoBehaviour
         if (SceneManager.GetActiveScene().name == outsideRVSceneString)
         {
             Cursor.SetCursor(cursor, Vector2.zero, CursorMode.Auto);
-        }
 
-        if (Input.GetKeyDown(KeyCode.F) && SceneManager.GetActiveScene().name == outsideRVSceneString)
+            if (Input.GetKeyDown(KeyCode.F))
+            {
+                SwitchView();
+            }
+        }
+    }
+
+    public void SwitchView()
+    {
+        if(SceneManager.GetActiveScene().name == outsideRVSceneString)
         {
             SceneManager.LoadScene(insideRVSceneString);
+        }
+
+        else
+        {
+            SceneManager.LoadScene(outsideRVSceneString);
         }
     }
 }
