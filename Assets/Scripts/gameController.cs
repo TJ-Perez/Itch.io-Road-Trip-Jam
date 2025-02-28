@@ -1,27 +1,31 @@
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class playerController : MonoBehaviour
+public class gameController : MonoBehaviour
 {
 
     [SerializeField] Texture2D cursor;
-    [SerializeField] Scene outsideRVScene;
-    [SerializeField] Scene insideRVScene;
+    [SerializeField] string outsideRVSceneString;
+    [SerializeField] string insideRVSceneString;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        if (SceneManager.GetActiveScene() == outsideRVScene)
-        {
-            Cursor.SetCursor(cursor, Vector2.zero, CursorMode.Auto);
-        }
+        Debug.Log(SceneManager.GetActiveScene().name);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.F) && SceneManager.GetActiveScene() == outsideRVScene)
+        
+        if (SceneManager.GetActiveScene().name == outsideRVSceneString)
         {
-            SceneManager.LoadScene(insideRVScene.ToString());
+            Cursor.SetCursor(cursor, Vector2.zero, CursorMode.Auto);
+        }
+
+        if (Input.GetKeyDown(KeyCode.F) && SceneManager.GetActiveScene().name == outsideRVSceneString)
+        {
+            SceneManager.LoadScene(insideRVSceneString);
         }
     }
 }
