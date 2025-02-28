@@ -9,6 +9,8 @@ public class gameController : MonoBehaviour
     [SerializeField] string outsideRVSceneString;
     [SerializeField] string insideRVSceneString;
 
+    public float weaponDamage = 10;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
