@@ -599,6 +599,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1811953953}
   - component: {fileID: 1811953954}
+  - component: {fileID: 1811953955}
   m_Layer: 0
   m_Name: Outside View Collider
   m_TagString: Untagged
@@ -667,6 +668,18 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1.3974705, y: 1.1987351}
   m_EdgeRadius: 0
+--- !u!114 &1811953955
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1811953952}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6cb5aebc6b454342b9e8e43176748ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &820686736031151923
 PrefabInstance:
   m_ObjectHideFlags: 0
