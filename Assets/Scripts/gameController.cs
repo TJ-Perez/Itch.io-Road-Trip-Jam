@@ -11,22 +11,19 @@ public class gameController : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        if (SceneManager.GetActiveScene().ToString() == outsideRVSceneString)
-        {
-            Cursor.SetCursor(cursor, Vector2.zero, CursorMode.Auto);
-        }
+        Debug.Log(SceneManager.GetActiveScene().name);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.F))
+        
+        if (SceneManager.GetActiveScene().name == outsideRVSceneString)
         {
-            Console.WriteLine("F down");
+            Cursor.SetCursor(cursor, Vector2.zero, CursorMode.Auto);
         }
 
-
-        if (Input.GetKeyDown(KeyCode.F) && SceneManager.GetActiveScene().ToString() == outsideRVSceneString)
+        if (Input.GetKeyDown(KeyCode.F) && SceneManager.GetActiveScene().name == outsideRVSceneString)
         {
             SceneManager.LoadScene(insideRVSceneString);
         }
