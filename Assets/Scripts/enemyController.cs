@@ -4,9 +4,11 @@ public class enemyController : MonoBehaviour
 {
 
     [SerializeField] private GameObject target;
-    [SerializeField] private float health;
+    [SerializeField] private float totalHealth;
+    [SerializeField] private float currentHealth;
     [SerializeField] private float speed;
     [SerializeField] gameController gameController;
+    [SerializeField] floatingHealthBar floatingHealthBar;
 
     Camera m_Camera;
     private Rigidbody2D rb;
@@ -21,6 +23,17 @@ public class enemyController : MonoBehaviour
     {
         gameObject.GetComponent<Rigidbody2D>().gravityScale = 0;
         rb = gameObject.GetComponent<Rigidbody2D>();
+
+        if(target == null)
+        {
+            target = GameObject.FindGameObjectWithTag("Player");
+        }
+
+        if (gameController == null)
+        {
+            gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<gameController>();
+        }
+
     }
 
     // Update is called once per frame
@@ -33,16 +46,17 @@ public class enemyController : MonoBehaviour
             RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
             if (hit && hit.collider.gameObject == gameObject)
             {
-                OnEnemyClicked(gameObject);
+                OnClicked();
             }
         }
     }
 
-    public void OnEnemyClicked(GameObject gameObject)
+    public void OnClicked()
     {
-        health -= gameController.weaponDamage;
+        currentHealth -= gameController.weaponDamage;
+        floatingHealthBar.UpdateHealthBar(currentHealth, totalHealth);
 
-        if(health <= 0)
+        if (currentHealth <= 0)
         {
             Destroy(gameObject);
         }
