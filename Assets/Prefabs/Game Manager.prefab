@@ -48,7 +48,9 @@ MonoBehaviour:
   cursor: {fileID: 2800000, guid: 8039c2e494f8d86498eecf6825c31aaf, type: 3}
   outsideRVSceneString: outsideRV
   insideRVSceneString: insideRV
-  audioClip: {fileID: 0}
+  spawnTimer: 10
+  weaponDamage: 10
+  spiderPrefab: {fileID: 1953897521899650631, guid: 39d73ddbdca6aab419cc84852cd7d7ec, type: 3}
 --- !u!82 &4737813956563418897
 AudioSource:
   m_ObjectHideFlags: 0

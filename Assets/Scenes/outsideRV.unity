@@ -268,6 +268,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Game Manager
       objectReference: {fileID: 0}
+    - target: {fileID: 2370075470485632592, guid: 3c50f55b2f266904caa3805892462a47, type: 3}
+      propertyPath: m_TagString
+      value: GameController
+      objectReference: {fileID: 0}
     - target: {fileID: 4409952232268998677, guid: 3c50f55b2f266904caa3805892462a47, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.22775085
@@ -419,7 +423,7 @@ GameObject:
   - component: {fileID: 1360443579}
   m_Layer: 0
   m_Name: OutdoorRV
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -628,7 +632,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1953897521899650631, guid: 39d73ddbdca6aab419cc84852cd7d7ec, type: 3}
       propertyPath: m_Name
-      value: testspider
+      value: Spider
+      objectReference: {fileID: 0}
+    - target: {fileID: 5523375793348094060, guid: 39d73ddbdca6aab419cc84852cd7d7ec, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6069182442605671576, guid: 39d73ddbdca6aab419cc84852cd7d7ec, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6069182442605671576, guid: 39d73ddbdca6aab419cc84852cd7d7ec, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6474510858952179056, guid: 39d73ddbdca6aab419cc84852cd7d7ec, type: 3}
       propertyPath: speed
