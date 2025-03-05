@@ -15,25 +15,17 @@ public class gameController : MonoBehaviour
 
     [SerializeField] GameObject spiderPrefab;
 
-    float timer = 0.0f;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         GetComponent<AudioSource>().Play();
+        InvokeRepeating(nameof(SpawnEnemy), spawnTimer, spawnTimer);
     }
 
     // Update is called once per frame
     void Update()
     {
-        timer += Time.deltaTime;
-        float seconds = (int)timer;
-
-        if (spawnTimer % seconds == 10)
-        {
-            SpawnEnemy();
-            timer = 0;
-        }
 
         if (SceneManager.GetActiveScene().name == outsideRVSceneString)
         {
@@ -61,11 +53,39 @@ public class gameController : MonoBehaviour
 
     public void SpawnEnemy()
     {
-        Instantiate(spiderPrefab, new Vector3(0, -1, 0), Quaternion.identity);
-    }
+        Vector3 spawnPosition = new Vector3(UnityEngine.Random.Range(0, 7.45f), UnityEngine.Random.Range(0, 5));
 
-    public static explicit operator gameController(GameObject v)
-    {
-        throw new NotImplementedException();
+        if (UnityEngine.Random.Range(0, 2) == 1) {
+            spawnPosition.x *= -1;
+        }
+
+        if (UnityEngine.Random.Range(0, 2) == 1)
+        {
+            spawnPosition.y *= -1;
+        }
+
+        if (Math.Abs(spawnPosition.y) < 3 && Math.Abs(spawnPosition.x) < 4.8f)
+        {
+            if(spawnPosition.y < 0)
+            {
+                spawnPosition.y -= 3;
+            }
+            else
+            {
+                spawnPosition.y += 3;
+            }
+
+            if (spawnPosition.x < 0)
+            {
+                spawnPosition.x -= 4.8f;
+            }
+            else
+            {
+                spawnPosition.x += 4.8f;
+            }
+
+        }
+
+        Instantiate(spiderPrefab, spawnPosition, Quaternion.identity);
     }
 }
