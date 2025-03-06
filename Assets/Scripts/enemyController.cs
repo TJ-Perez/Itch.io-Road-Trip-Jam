@@ -1,14 +1,14 @@
 using UnityEngine;
 
-public class enemyController : MonoBehaviour
+public class EnemyController : MonoBehaviour
 {
 
     [SerializeField] private GameObject target;
     [SerializeField] private float totalHealth;
     [SerializeField] private float currentHealth;
     [SerializeField] private float speed;
-    [SerializeField] gameController gameController;
-    [SerializeField] floatingHealthBar floatingHealthBar;
+    [SerializeField] GameController gameController;
+    [SerializeField] FloatingHealthBar floatingHealthBar;
 
     Camera m_Camera;
     private Rigidbody2D rb;
@@ -31,7 +31,7 @@ public class enemyController : MonoBehaviour
 
         if (gameController == null)
         {
-            gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<gameController>();
+            gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
         }
     }
 

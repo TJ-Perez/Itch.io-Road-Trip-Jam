@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class outsideViewEnabler : MonoBehaviour
+public class OutsideViewEnabler : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -16,11 +16,11 @@ public class outsideViewEnabler : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        other.gameObject.GetComponent<playerController>().isAbleViewOutside = true;
+        other.gameObject.GetComponent<PlayerController>().isAbleViewOutside = true;
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        other.gameObject.GetComponent<playerController>().isAbleViewOutside = false;
+        other.gameObject.GetComponent<PlayerController>().isAbleViewOutside = false;
     }
 }

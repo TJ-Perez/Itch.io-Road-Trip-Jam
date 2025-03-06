@@ -1,10 +1,10 @@
 using UnityEngine;
 
-public class playerController : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
     [SerializeField] float moveSpeed;
     [SerializeField] Collider2D outsideViewCollider;
-    [SerializeField] gameController gameController;
+    [SerializeField] GameController gameController;
     [SerializeField] Collider2D playerCollider;
 
     public bool isAbleViewOutside = false;
