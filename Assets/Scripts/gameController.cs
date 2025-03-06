@@ -44,8 +44,7 @@ public class GameController : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(0))
             {
-                Vector2 bulletVector = Vector2.MoveTowards(transform.position, Input.mousePosition, bulletSpeed);
-                Instantiate(bullet, transform.position, Quaternion.identity).GetComponent<Rigidbody2D>().linearVelocity = bulletVector;
+                Instantiate(bullet, transform.position, Quaternion.identity);
             }
         }
 
