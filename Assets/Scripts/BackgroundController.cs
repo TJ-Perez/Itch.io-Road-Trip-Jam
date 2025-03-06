@@ -1,11 +1,7 @@
 using UnityEngine;
-using UnityEngine.UI;
 
-public class FloatingHealthBar : MonoBehaviour
+public class BackgroundController : MonoBehaviour
 {
-
-    [SerializeField] private Slider slider;
-
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -16,9 +12,5 @@ public class FloatingHealthBar : MonoBehaviour
     void Update()
     {
         
-    }
-    public void UpdateHealthBar(float current, float max)
-    {
-        slider.value = current/max;
     }
 }

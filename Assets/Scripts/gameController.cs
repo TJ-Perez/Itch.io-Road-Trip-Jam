@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class gameController : MonoBehaviour
+public class GameController : MonoBehaviour
 {
 
     [SerializeField] Texture2D cursor;
@@ -15,22 +15,23 @@ public class gameController : MonoBehaviour
 
     [SerializeField] GameObject spiderPrefab;
 
-
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         GetComponent<AudioSource>().Play();
-        InvokeRepeating(nameof(SpawnEnemy), spawnTimer, spawnTimer);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
 
         if (SceneManager.GetActiveScene().name == outsideRVSceneString)
         {
             Cursor.SetCursor(cursor, Vector2.zero, CursorMode.Auto);
 
+        }
+            InvokeRepeating(nameof(SpawnEnemy), spawnTimer, spawnTimer);
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        {
             if (Input.GetKeyDown(KeyCode.F))
             {
                 SwitchView();
