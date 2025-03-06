@@ -54,12 +54,12 @@ public class EnemyController : MonoBehaviour
             RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
             if (hit && hit.collider.gameObject == gameObject)
             {
-                OnClicked();
+                OnHit();
             }
         }
     }
 
-    public void OnClicked()
+    public void OnHit()
     {
         currentHealth -= gameController.weaponDamage;
         floatingHealthBar.UpdateHealthBar(currentHealth, totalHealth);

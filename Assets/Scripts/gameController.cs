@@ -15,6 +15,10 @@ public class GameController : MonoBehaviour
 
     [SerializeField] GameObject spiderPrefab;
 
+    [SerializeField] float bulletSpeed;
+
+    [SerializeField] GameObject bullet;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -31,12 +35,21 @@ public class GameController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.F))
         {
-            if (Input.GetKeyDown(KeyCode.F))
+            SwitchView();
+        }
+
+        if (SceneManager.GetActiveScene().name == outsideRVSceneString)
+        {
+            if (Input.GetMouseButtonDown(0))
             {
-                SwitchView();
+                Vector2 bulletVector = Vector2.MoveTowards(transform.position, Input.mousePosition, bulletSpeed);
+                Instantiate(bullet, transform.position, Quaternion.identity).GetComponent<Rigidbody2D>().linearVelocity = bulletVector;
             }
         }
+
+
     }
 
     public void SwitchView()
