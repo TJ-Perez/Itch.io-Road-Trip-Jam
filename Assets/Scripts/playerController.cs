@@ -2,7 +2,8 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] float moveSpeed;
+    [SerializeField] float horizontalMoveVelocity;
+    [SerializeField] float jumpVelocity;
     [SerializeField] Collider2D outsideViewCollider;
     [SerializeField] GameController gameController;
     [SerializeField] Collider2D playerCollider;
@@ -20,13 +21,19 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.A))
         {
-            gameObject.GetComponent<Rigidbody2D>().transform.position += new Vector3(-moveSpeed, 0,0);
+            gameObject.GetComponent<Rigidbody2D>().linearVelocityX = -horizontalMoveVelocity;
         }
 
         if (Input.GetKey(KeyCode.D))
         {
-            gameObject.GetComponent<Rigidbody2D>().transform.position += new Vector3(moveSpeed, 0, 0);
+            gameObject.GetComponent<Rigidbody2D>().linearVelocityX = horizontalMoveVelocity;
         }
+
+        if (Input.GetKey(KeyCode.Space))
+        {
+            gameObject.GetComponent<Rigidbody2D>().linearVelocityY = jumpVelocity;
+        }
+
 
         if (Input.GetKey(KeyCode.F))
         {

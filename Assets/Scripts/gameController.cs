@@ -27,9 +27,9 @@ public class GameController : MonoBehaviour
         if (SceneManager.GetActiveScene().name == outsideRVSceneString)
         {
             Cursor.SetCursor(cursor, Vector2.zero, CursorMode.Auto);
+            InvokeRepeating(nameof(SpawnEnemy), spawnTimer, spawnTimer);
 
         }
-            InvokeRepeating(nameof(SpawnEnemy), spawnTimer, spawnTimer);
     }
 
     // Update is called once per frame
