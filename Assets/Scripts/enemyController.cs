@@ -48,19 +48,12 @@ public class EnemyController : MonoBehaviour
         {
             transform.localScale = new Vector3(1, 1, 1);
         }
-
-        if (Input.GetMouseButtonDown(0))
-        {
-            RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
-            if (hit && hit.collider.gameObject == gameObject)
-            {
-                OnClicked();
-            }
-        }
     }
 
-    public void OnClicked()
+    public void OnHit()
     {
+
+        Debug.Log("Hit");
         currentHealth -= gameController.weaponDamage;
         floatingHealthBar.UpdateHealthBar(currentHealth, totalHealth);
 

@@ -203,6 +203,10 @@ PrefabInstance:
       propertyPath: spawnTimer
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 6136201153580663399, guid: 3c50f55b2f266904caa3805892462a47, type: 3}
+      propertyPath: bulletSpeed
+      value: 0.0001
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -517,7 +521,6 @@ GameObject:
   - component: {fileID: 866990558812124938}
   - component: {fileID: 1395075544874171949}
   - component: {fileID: 3208202867749390255}
-  - component: {fileID: 7957648703342014199}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -592,18 +595,6 @@ MonoBehaviour:
     m_MipBias: 0
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
---- !u!114 &7957648703342014199
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1371936206316850788}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e179b8c6df1ef5c4e96a65e20f92d247, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

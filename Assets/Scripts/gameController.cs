@@ -15,6 +15,10 @@ public class GameController : MonoBehaviour
 
     [SerializeField] GameObject spiderPrefab;
 
+    [SerializeField] float bulletSpeed;
+
+    [SerializeField] GameObject bullet;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -23,20 +27,27 @@ public class GameController : MonoBehaviour
         if (SceneManager.GetActiveScene().name == outsideRVSceneString)
         {
             Cursor.SetCursor(cursor, Vector2.zero, CursorMode.Auto);
+            InvokeRepeating(nameof(SpawnEnemy), spawnTimer, spawnTimer);
 
         }
-            InvokeRepeating(nameof(SpawnEnemy), spawnTimer, spawnTimer);
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.F))
         {
-            if (Input.GetKeyDown(KeyCode.F))
+            SwitchView();
+        }
+
+        if (SceneManager.GetActiveScene().name == outsideRVSceneString)
+        {
+            if (Input.GetMouseButtonDown(0))
             {
-                SwitchView();
+                Instantiate(bullet, transform.position, Quaternion.identity);
             }
         }
+
     }
 
     public void SwitchView()
