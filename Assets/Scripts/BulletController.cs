@@ -13,6 +13,7 @@ public class BulletController : MonoBehaviour
         gameObject.GetComponent<Rigidbody2D>().gravityScale = 0;
         Vector2 bulletVector = Vector2.MoveTowards(transform.position, mousePos, bulletSpeed);
         gameObject.GetComponent<Rigidbody2D>().linearVelocity = bulletVector;
+        gameObject.transform.transform.Rotate(0, 0, Mathf.Atan2(bulletVector.y, bulletVector.x) * Mathf.Rad2Deg);
     }
 
     // Update is called once per frame
@@ -21,9 +22,9 @@ public class BulletController : MonoBehaviour
         
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(UnityEngine.Collider2D collision)
     {
-        if (collision.gameObject.tag == "Enemy")
+        if (collision.gameObject.CompareTag("Enemy"))
         {
             collision.gameObject.GetComponent<EnemyController>().OnHit();
             Destroy(gameObject);
