@@ -33,13 +33,21 @@ public class enemyController : MonoBehaviour
         {
             gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<gameController>();
         }
-
     }
 
     // Update is called once per frame
     void Update()
     {
         rb.position = Vector2.MoveTowards(transform.position, target.transform.position, speed);
+
+        if (rb.position.x < target.transform.position.x)
+        {
+            transform.localScale = new Vector3(-1, 1, 1);
+        }
+        else
+        {
+            transform.localScale = new Vector3(1, 1, 1);
+        }
 
         if (Input.GetMouseButtonDown(0))
         {
