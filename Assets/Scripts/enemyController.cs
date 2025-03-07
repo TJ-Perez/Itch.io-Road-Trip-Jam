@@ -10,6 +10,8 @@ public class EnemyController : MonoBehaviour
     [SerializeField] GameController gameController;
     [SerializeField] FloatingHealthBar floatingHealthBar;
 
+    [SerializeField] AudioClip enemyDeathSound;
+
     Camera m_Camera;
     private Rigidbody2D rb;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -17,7 +19,6 @@ public class EnemyController : MonoBehaviour
     {
         m_Camera = Camera.main;
     }
-
 
     void Start()
     {
@@ -59,6 +60,7 @@ public class EnemyController : MonoBehaviour
 
         if (currentHealth <= 0)
         {
+            GameObject.FindGameObjectWithTag("soundEffectSource").GetComponent<AudioSource>().PlayOneShot(enemyDeathSound);
             Destroy(gameObject);
         }
     }

@@ -212,6 +212,7 @@ MonoBehaviour:
   speed: 0.01
   gameController: {fileID: 0}
   floatingHealthBar: {fileID: 4702091582431709310}
+  enemyDeathSound: {fileID: 8300000, guid: e51628d37f25f904db440355b2ddd273, type: 3}
 --- !u!50 &5007497066454478115
 Rigidbody2D:
   serializedVersion: 5
