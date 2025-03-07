@@ -212,7 +212,7 @@ MonoBehaviour:
   speed: 0.01
   gameController: {fileID: 0}
   floatingHealthBar: {fileID: 4702091582431709310}
-  enemyDeathSound: {fileID: 8300000, guid: e51628d37f25f904db440355b2ddd273, type: 3}
+  enemyDeathSound: {fileID: 8300000, guid: bfa18836bcd55cb45a8ac45e01c3054b, type: 3}
 --- !u!50 &5007497066454478115
 Rigidbody2D:
   serializedVersion: 5
@@ -274,7 +274,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.008342385, y: 0.00000011920929}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -284,7 +284,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 2.9, y: 2.42}
+  m_Size: {x: 2.7665184, y: 2.3032033}
   m_EdgeRadius: 0
 --- !u!1 &4460265675071691947
 GameObject:

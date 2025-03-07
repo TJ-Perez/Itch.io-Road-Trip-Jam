@@ -188,6 +188,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4737813956563418897, guid: 3c50f55b2f266904caa3805892462a47, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4737813956563418897, guid: 3c50f55b2f266904caa3805892462a47, type: 3}
       propertyPath: m_Resource
       value: 
       objectReference: {fileID: 8300000, guid: 1a235b66fdda40f4dbae166b470d8f63, type: 3}
@@ -346,7 +350,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8673332565298191753, guid: be1663784de8a414e8761005ef393dc8, type: 3}
       propertyPath: m_Name
-      value: Sound Effect Player
+      value: Enemy Death Sound Effect Player
       objectReference: {fileID: 0}
     - target: {fileID: 8673332565298191753, guid: be1663784de8a414e8761005ef393dc8, type: 3}
       propertyPath: m_TagString
