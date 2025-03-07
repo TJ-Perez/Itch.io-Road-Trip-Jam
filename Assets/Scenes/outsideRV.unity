@@ -350,7 +350,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8673332565298191753, guid: be1663784de8a414e8761005ef393dc8, type: 3}
       propertyPath: m_Name
-      value: Enemy Death Sound Effect Player
+      value: Sound Effect Player
       objectReference: {fileID: 0}
     - target: {fileID: 8673332565298191753, guid: be1663784de8a414e8761005ef393dc8, type: 3}
       propertyPath: m_TagString
