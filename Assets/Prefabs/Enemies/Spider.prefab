@@ -213,6 +213,7 @@ MonoBehaviour:
   gameController: {fileID: 0}
   floatingHealthBar: {fileID: 4702091582431709310}
   enemyDeathSound: {fileID: 8300000, guid: bfa18836bcd55cb45a8ac45e01c3054b, type: 3}
+  enemyHitSound: {fileID: 8300000, guid: c44d8fa71e1b24a408ff52bcd538cb97, type: 3}
 --- !u!50 &5007497066454478115
 Rigidbody2D:
   serializedVersion: 5

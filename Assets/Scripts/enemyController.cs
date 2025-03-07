@@ -11,6 +11,7 @@ public class EnemyController : MonoBehaviour
     [SerializeField] FloatingHealthBar floatingHealthBar;
 
     [SerializeField] AudioClip enemyDeathSound;
+    [SerializeField] AudioClip enemyHitSound;
 
     Camera m_Camera;
     private Rigidbody2D rb;
@@ -63,5 +64,10 @@ public class EnemyController : MonoBehaviour
             GameObject.FindGameObjectWithTag("soundEffectSource").GetComponent<AudioSource>().PlayOneShot(enemyDeathSound);
             Destroy(gameObject);
         }
+        else
+        {
+            GameObject.FindGameObjectWithTag("soundEffectSource").GetComponent<AudioSource>().PlayOneShot(enemyHitSound);
+        }
+
     }
 }
