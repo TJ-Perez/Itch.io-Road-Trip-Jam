@@ -17,7 +17,7 @@ public class GameController : MonoBehaviour
 
     [SerializeField] GameObject bullet;
 
-    int currentWave = 0;
+    int currentWave = 1;
 
     public int enemiesKilledCurrentWave = 0;
 
@@ -31,7 +31,7 @@ public class GameController : MonoBehaviour
         if (SceneManager.GetActiveScene().name == outsideRVSceneString)
         {
             Cursor.SetCursor(cursor, Vector2.zero, CursorMode.Auto);
-            InvokeRepeating(nameof(SpawnEnemy), spawnTimer, spawnTimer);
+            InvokeRepeating(nameof(SpawnEnemy), 0, spawnTimer);
 
         }
     }
@@ -39,7 +39,10 @@ public class GameController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if (enemiesKilledCurrentWave == enemiesPerWave * currentWave)
+        {
+            //move to next wave
+        }
 
         if (Input.GetKeyDown(KeyCode.F))
         {
