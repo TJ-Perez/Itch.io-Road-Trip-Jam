@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class BulletController : MonoBehaviour
@@ -8,6 +9,8 @@ public class BulletController : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        StartCoroutine(SelfDestruct());
+
         Vector3 mousePos = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>().ScreenToWorldPoint(Input.mousePosition);
 
         gameObject.GetComponent<Rigidbody2D>().gravityScale = 0;
@@ -20,6 +23,12 @@ public class BulletController : MonoBehaviour
     void Update()
     {
         
+    }
+
+    IEnumerator SelfDestruct()
+    {
+        yield return new WaitForSeconds(5);
+        Destroy(gameObject);
     }
 
     private void OnTriggerEnter2D(UnityEngine.Collider2D collision)

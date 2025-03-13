@@ -52,8 +52,11 @@ MonoBehaviour:
   spawnTimer: 10
   weaponDamage: 10
   spiderPrefab: {fileID: 1953897521899650631, guid: 39d73ddbdca6aab419cc84852cd7d7ec, type: 3}
-  bulletSpeed: 1
   bullet: {fileID: 7266536223132384290, guid: 92b23c32b730b344882ba55060a754d7, type: 3}
+  enemiesKilledCurrentWave: 0
+  baseEnemiesPerWave: 3
+  bulletsPerSecond: 1
+  bulletCooldownTimer: 0
 --- !u!82 &4737813956563418897
 AudioSource:
   m_ObjectHideFlags: 0

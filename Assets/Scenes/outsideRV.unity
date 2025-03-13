@@ -537,11 +537,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6136201153580663399, guid: 3c50f55b2f266904caa3805892462a47, type: 3}
       propertyPath: spawnTimer
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6136201153580663399, guid: 3c50f55b2f266904caa3805892462a47, type: 3}
       propertyPath: bulletSpeed
       value: 0.0001
+      objectReference: {fileID: 0}
+    - target: {fileID: 6136201153580663399, guid: 3c50f55b2f266904caa3805892462a47, type: 3}
+      propertyPath: bulletsPerSecond
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

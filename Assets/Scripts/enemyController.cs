@@ -62,7 +62,7 @@ public class EnemyController : MonoBehaviour
         if (currentHealth <= 0)
         {
             GameObject.FindGameObjectWithTag("soundEffectSource").GetComponent<AudioSource>().PlayOneShot(enemyDeathSound);
-            gameController.enemiesKilledCurrentWave++;
+            gameController.enemiesRemainingCurrentWave--;
             Destroy(gameObject);
         }
         else
