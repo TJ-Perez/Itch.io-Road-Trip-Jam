@@ -15,9 +15,13 @@ public class GameController : MonoBehaviour
 
     [SerializeField] GameObject spiderPrefab;
 
-    [SerializeField] float bulletSpeed;
-
     [SerializeField] GameObject bullet;
+
+    int currentWave = 1;
+
+    public int enemiesKilledCurrentWave = 0;
+
+    int enemiesPerWave = 3;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -27,7 +31,7 @@ public class GameController : MonoBehaviour
         if (SceneManager.GetActiveScene().name == outsideRVSceneString)
         {
             Cursor.SetCursor(cursor, Vector2.zero, CursorMode.Auto);
-            InvokeRepeating(nameof(SpawnEnemy), spawnTimer, spawnTimer);
+            InvokeRepeating(nameof(SpawnEnemy), 0, spawnTimer);
 
         }
     }
@@ -35,6 +39,11 @@ public class GameController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (enemiesKilledCurrentWave == enemiesPerWave * currentWave)
+        {
+            //move to next wave
+        }
+
         if (Input.GetKeyDown(KeyCode.F))
         {
             SwitchView();
