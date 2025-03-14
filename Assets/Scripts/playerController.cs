@@ -13,7 +13,8 @@ public class PlayerController : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
+
     }
 
     // Update is called once per frame
@@ -39,7 +40,9 @@ public class PlayerController : MonoBehaviour
         {
             if (isAbleViewOutside) {
 
+                gameController.waveSpawned = false;
                 gameController.SwitchView();
+
 
             }
         }

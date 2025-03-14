@@ -4,9 +4,12 @@ using UnityEngine;
 public class EnemyController : MonoBehaviour
 {
 
-    [SerializeField] private GameObject target;
+    [SerializeField] private GameObject attackTarget;
     [SerializeField] private float totalHealth;
     [SerializeField] private float currentHealth;
+
+    [SerializeField] private float damage;
+
     [SerializeField] private float speed;
     [SerializeField] GameController gameController;
     [SerializeField] FloatingHealthBar floatingHealthBar;
@@ -29,9 +32,9 @@ public class EnemyController : MonoBehaviour
         gameObject.GetComponent<Rigidbody2D>().gravityScale = 0;
         rb = gameObject.GetComponent<Rigidbody2D>();
 
-        if(target == null)
+        if(attackTarget == null)
         {
-            target = GameObject.FindGameObjectWithTag("Player");
+            attackTarget = GameObject.FindGameObjectWithTag("RV");
         }
 
         if (gameController == null)
@@ -48,9 +51,9 @@ public class EnemyController : MonoBehaviour
             return;
         }
 
-        rb.position = Vector2.MoveTowards(transform.position, target.transform.position, speed);
+        rb.position = Vector2.MoveTowards(transform.position, attackTarget.transform.position, speed);
 
-        if (rb.position.x < target.transform.position.x)
+        if (rb.position.x < attackTarget.transform.position.x)
         {
             transform.localScale = new Vector3(-1, 1, 1);
         }
@@ -82,9 +85,11 @@ public class EnemyController : MonoBehaviour
 
     public void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("RV"))
         {
             Debug.Log("Player Hit");
+            gameController.OnHit(damage);
+            floatingHealthBar.gameObject.SetActive(false);
             enemyAnimator.SetBool("shouldExplode", true);
             //play sound for explosion?
 
