@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -20,6 +21,8 @@ public class GameController : MonoBehaviour
     [SerializeField] GameObject spiderPrefab;
 
     [SerializeField] GameObject bullet;
+
+    [SerializeField] public GameObject waveNumberText;
 
     int currentWave = 1;
 
@@ -43,6 +46,8 @@ public class GameController : MonoBehaviour
         enemiesToSpawnForWave = baseEnemiesPerWave;
         enemiesRemainingCurrentWave = enemiesToSpawnForWave;
 
+        waveNumberText.GetComponent<TextMeshProUGUI>().SetText("Wave: " + currentWave);
+
         GetComponent<AudioSource>().Play();
 
         if (SceneManager.GetActiveScene().name == outsideRVSceneString)
@@ -65,6 +70,7 @@ public class GameController : MonoBehaviour
         if (waveSpawned == true && enemiesRemainingCurrentWave <= 0)
         {
             currentWave++;
+            waveNumberText.GetComponent<TextMeshProUGUI>().SetText("Wave: " + currentWave);
             waveSpawned = false;
         }
 
