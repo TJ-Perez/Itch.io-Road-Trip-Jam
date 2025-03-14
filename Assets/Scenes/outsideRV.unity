@@ -974,9 +974,10 @@ GameObject:
   - component: {fileID: 1360443577}
   - component: {fileID: 1360443580}
   - component: {fileID: 1360443579}
+  - component: {fileID: 1360443581}
   m_Layer: 0
   m_Name: OutdoorRV
-  m_TagString: Player
+  m_TagString: RV
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1125,6 +1126,21 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 4.72, y: 2.44}
   m_EdgeRadius: 0
+--- !u!114 &1360443581
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1360443576}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bfec626ef23c084cb878090728866cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  totalHealth: 200
+  currentHealth: 200
+  floatingHealthBar: {fileID: 309499663}
 --- !u!1 &1376758049
 GameObject:
   m_ObjectHideFlags: 0
