@@ -7,6 +7,9 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private GameObject attackTarget;
     [SerializeField] private float totalHealth;
     [SerializeField] private float currentHealth;
+
+    [SerializeField] private float damage;
+
     [SerializeField] private float speed;
     [SerializeField] GameController gameController;
     [SerializeField] FloatingHealthBar floatingHealthBar;
@@ -31,7 +34,7 @@ public class EnemyController : MonoBehaviour
 
         if(attackTarget == null)
         {
-            attackTarget = GameObject.FindGameObjectWithTag("Player");
+            attackTarget = GameObject.FindGameObjectWithTag("RV");
         }
 
         if (gameController == null)
@@ -85,6 +88,8 @@ public class EnemyController : MonoBehaviour
         if (collision.gameObject.CompareTag("RV"))
         {
             Debug.Log("Player Hit");
+            gameController.OnHit(damage);
+            floatingHealthBar.gameObject.SetActive(false);
             enemyAnimator.SetBool("shouldExplode", true);
             //play sound for explosion?
 

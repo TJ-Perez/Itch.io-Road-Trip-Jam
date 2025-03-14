@@ -9,8 +9,8 @@ public class GameController : MonoBehaviour
 {
 
     [SerializeField] Texture2D cursor;
-    [SerializeField] string outsideRVSceneString;
-    [SerializeField] string insideRVSceneString;
+    [SerializeField] public string outsideRVSceneString;
+    [SerializeField] public string insideRVSceneString;
 
     [SerializeField] float baseSpawnTimer;
     
@@ -26,7 +26,7 @@ public class GameController : MonoBehaviour
 
     int currentWave = 1;
 
-    bool waveSpawned = false;
+    public bool waveSpawned = false;
 
     public int enemiesRemainingCurrentWave = 0;
 
@@ -38,8 +38,31 @@ public class GameController : MonoBehaviour
 
     float bulletCooldownTimer = 0;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+
+    [SerializeField] public float totalHealth;
+    [SerializeField] public float currentHealth;
+
+    [SerializeField] FloatingHealthBar rvFloatingHealthBar;
+
+    //[SerializeField] Sprite insideRV;
+    //[SerializeField] Sprite outsideRV;
+
+    public static GameController Instance;
+
+    private void Awake()
+    {
+        if (Instance != null)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        Instance = this;
+        DontDestroyOnLoad(gameObject);
+    }
+
+        // Start is called once before the first execution of Update after the MonoBehaviour is created
+        void Start()
     {
         bulletCooldownTimer = 1/bulletsPerSecond;
         spawnTimer = baseSpawnTimer;
@@ -67,22 +90,17 @@ public class GameController : MonoBehaviour
             enemiesToSpawnForWave += baseEnemiesPerWave;
         }
 
-        if (waveSpawned == true && enemiesRemainingCurrentWave <= 0)
+        else if (waveSpawned == true && enemiesRemainingCurrentWave <= 0 && SceneManager.GetActiveScene().name == outsideRVSceneString)
         {
             currentWave++;
             waveNumberText.GetComponent<TextMeshProUGUI>().SetText("Wave: " + currentWave);
-            waveSpawned = false;
+            SwitchView();
+            //waveSpawned = false;
         }
 
         if (bulletCooldownTimer > 0)
         {
             bulletCooldownTimer -= Time.deltaTime;
-        }
-
-
-        if (Input.GetKeyDown(KeyCode.F))
-        {
-            SwitchView();
         }
 
         if (SceneManager.GetActiveScene().name == outsideRVSceneString)
@@ -98,14 +116,17 @@ public class GameController : MonoBehaviour
 
     public void SwitchView()
     {
-        if(SceneManager.GetActiveScene().name == outsideRVSceneString)
+
+        if (SceneManager.GetActiveScene().name == outsideRVSceneString)
         {
             SceneManager.LoadScene(insideRVSceneString);
+            //gameObject.GetComponent<SpriteRenderer>().sprite = outsideRV;
         }
 
         else
         {
             SceneManager.LoadScene(outsideRVSceneString);
+            //gameObject.GetComponent<SpriteRenderer>().sprite = insideRV;
         }
     }
 
@@ -157,5 +178,10 @@ public class GameController : MonoBehaviour
         }
 
         Instantiate(spiderPrefab, spawnPosition, Quaternion.identity);
+    }
+    public void OnHit(float damage)
+    {
+        currentHealth -= damage;
+        rvFloatingHealthBar.UpdateHealthBar(currentHealth, totalHealth);
     }
 }

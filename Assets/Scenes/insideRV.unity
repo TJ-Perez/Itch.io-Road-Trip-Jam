@@ -377,88 +377,11 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &888412948 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6136201153580663399, guid: 3c50f55b2f266904caa3805892462a47, type: 3}
-  m_PrefabInstance: {fileID: 1107919577}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 811c54d5a4107b3409a479eddd3b88ef, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &1018935576 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3023282514352736783, guid: a54d21be454161440b347b9e22645b12, type: 3}
   m_PrefabInstance: {fileID: 820686736031151923}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &1107919577
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 2370075470485632592, guid: 3c50f55b2f266904caa3805892462a47, type: 3}
-      propertyPath: m_Name
-      value: Game Manager
-      objectReference: {fileID: 0}
-    - target: {fileID: 4409952232268998677, guid: 3c50f55b2f266904caa3805892462a47, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4409952232268998677, guid: 3c50f55b2f266904caa3805892462a47, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4409952232268998677, guid: 3c50f55b2f266904caa3805892462a47, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4409952232268998677, guid: 3c50f55b2f266904caa3805892462a47, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4409952232268998677, guid: 3c50f55b2f266904caa3805892462a47, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4409952232268998677, guid: 3c50f55b2f266904caa3805892462a47, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4409952232268998677, guid: 3c50f55b2f266904caa3805892462a47, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4409952232268998677, guid: 3c50f55b2f266904caa3805892462a47, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4409952232268998677, guid: 3c50f55b2f266904caa3805892462a47, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4409952232268998677, guid: 3c50f55b2f266904caa3805892462a47, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4737813956563418897, guid: 3c50f55b2f266904caa3805892462a47, type: 3}
-      propertyPath: m_Resource
-      value: 
-      objectReference: {fileID: 8300000, guid: 05aba416278f237469018d85ab27a7a9, type: 3}
-    - target: {fileID: 4737813956563418897, guid: 3c50f55b2f266904caa3805892462a47, type: 3}
-      propertyPath: m_audioClip
-      value: 
-      objectReference: {fileID: 8300000, guid: 05aba416278f237469018d85ab27a7a9, type: 3}
-    m_RemovedComponents: []
-    m_RemovedGameObjects:
-    - {fileID: 5391233221001467762, guid: 3c50f55b2f266904caa3805892462a47, type: 3}
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 3c50f55b2f266904caa3805892462a47, type: 3}
 --- !u!1 &1811953952
 GameObject:
   m_ObjectHideFlags: 0
@@ -605,7 +528,7 @@ PrefabInstance:
     - target: {fileID: 8717191219004151971, guid: a54d21be454161440b347b9e22645b12, type: 3}
       propertyPath: gameController
       value: 
-      objectReference: {fileID: 888412948}
+      objectReference: {fileID: 0}
     - target: {fileID: 8717191219004151971, guid: a54d21be454161440b347b9e22645b12, type: 3}
       propertyPath: outsideViewCollider
       value: 
@@ -758,4 +681,3 @@ SceneRoots:
   m_Roots:
   - {fileID: 4760312707158990113}
   - {fileID: 510761130}
-  - {fileID: 1107919577}
