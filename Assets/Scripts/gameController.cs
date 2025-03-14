@@ -1,4 +1,6 @@
 using System;
+using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -9,7 +11,9 @@ public class GameController : MonoBehaviour
     [SerializeField] string outsideRVSceneString;
     [SerializeField] string insideRVSceneString;
 
-    [SerializeField] float spawnTimer;
+    [SerializeField] float baseSpawnTimer;
+    
+    float spawnTimer;
 
     [SerializeField] public float weaponDamage;
 
@@ -19,30 +23,56 @@ public class GameController : MonoBehaviour
 
     int currentWave = 1;
 
-    public int enemiesKilledCurrentWave = 0;
+    bool waveSpawned = false;
 
-    int enemiesPerWave = 3;
+    public int enemiesRemainingCurrentWave = 0;
+
+    [SerializeField] int baseEnemiesPerWave;
+
+    int enemiesToSpawnForWave;
+
+    [SerializeField] float bulletsPerSecond;
+
+     float bulletCooldownTimer = 0;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        bulletCooldownTimer = 1/bulletsPerSecond;
+        spawnTimer = baseSpawnTimer;
+        enemiesToSpawnForWave = baseEnemiesPerWave;
+        enemiesRemainingCurrentWave = enemiesToSpawnForWave;
+
         GetComponent<AudioSource>().Play();
 
         if (SceneManager.GetActiveScene().name == outsideRVSceneString)
         {
             Cursor.SetCursor(cursor, Vector2.zero, CursorMode.Auto);
-            InvokeRepeating(nameof(SpawnEnemy), 0, spawnTimer);
-
         }
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (enemiesKilledCurrentWave == enemiesPerWave * currentWave)
+        if (SceneManager.GetActiveScene().name == outsideRVSceneString && waveSpawned == false)
         {
-            //move to next wave
+            enemiesRemainingCurrentWave = enemiesToSpawnForWave;
+            StartCoroutine(SpawnEnemies(enemiesToSpawnForWave, spawnTimer));
+            waveSpawned = true;
+            enemiesToSpawnForWave += baseEnemiesPerWave;
         }
+
+        if (waveSpawned == true && enemiesRemainingCurrentWave <= 0)
+        {
+            currentWave++;
+            waveSpawned = false;
+        }
+
+        if (bulletCooldownTimer > 0)
+        {
+            bulletCooldownTimer -= Time.deltaTime;
+        }
+
 
         if (Input.GetKeyDown(KeyCode.F))
         {
@@ -51,9 +81,10 @@ public class GameController : MonoBehaviour
 
         if (SceneManager.GetActiveScene().name == outsideRVSceneString)
         {
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButton(0) && bulletCooldownTimer <= 0)
             {
                 Instantiate(bullet, transform.position, Quaternion.identity);
+                bulletCooldownTimer = 1 / bulletsPerSecond;
             }
         }
 
@@ -69,6 +100,18 @@ public class GameController : MonoBehaviour
         else
         {
             SceneManager.LoadScene(outsideRVSceneString);
+        }
+    }
+
+    IEnumerator SpawnEnemies(int numEnemiesToSpawn, float spawnTimer)
+    {
+        int i = 0;
+        while (i < numEnemiesToSpawn)
+        {
+            SpawnEnemy();
+            yield return new WaitForSeconds(spawnTimer);
+            i++;
+
         }
     }
 
