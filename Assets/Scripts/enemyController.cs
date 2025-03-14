@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class EnemyController : MonoBehaviour
@@ -12,6 +13,8 @@ public class EnemyController : MonoBehaviour
 
     [SerializeField] AudioClip enemyDeathSound;
     [SerializeField] AudioClip enemyHitSound;
+
+    [SerializeField] Animator enemyAnimator;
 
     Camera m_Camera;
     private Rigidbody2D rb;
@@ -40,6 +43,11 @@ public class EnemyController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (enemyAnimator.GetBool("shouldExplode"))
+        {
+            return;
+        }
+
         rb.position = Vector2.MoveTowards(transform.position, target.transform.position, speed);
 
         if (rb.position.x < target.transform.position.x)
@@ -69,6 +77,28 @@ public class EnemyController : MonoBehaviour
         {
             GameObject.FindGameObjectWithTag("soundEffectSource").GetComponent<AudioSource>().PlayOneShot(enemyHitSound);
         }
+
+    }
+
+    public void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            Debug.Log("Player Hit");
+            enemyAnimator.SetBool("shouldExplode", true);
+            //play sound for explosion?
+
+            //wait for duration of explosion animation
+            StartCoroutine(DelayDestroyBySeconds(.5f));
+        }
+    }
+
+    IEnumerator DelayDestroyBySeconds(float seconds)
+    {
+        yield return new WaitForSeconds(seconds);
+        Debug.Log("Done waiting");
+        gameController.enemiesRemainingCurrentWave--;
+        Destroy(gameObject);
 
     }
 }
