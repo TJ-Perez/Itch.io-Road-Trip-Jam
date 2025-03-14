@@ -118,7 +118,7 @@ GameObject:
   - component: {fileID: 1330535436811650826}
   - component: {fileID: 1410091451504679209}
   m_Layer: 0
-  m_Name: Spider-High Health
+  m_Name: Spider- Base
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -208,8 +208,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  totalHealth: 150
-  currentHealth: 150
+  totalHealth: 100
+  currentHealth: 100
   speed: 0.01
   gameController: {fileID: 0}
   floatingHealthBar: {fileID: 4702091582431709310}
