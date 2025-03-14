@@ -36,7 +36,7 @@ public class GameController : MonoBehaviour
 
     [SerializeField] float bulletsPerSecond;
 
-     float bulletCooldownTimer = 0;
+    float bulletCooldownTimer = 0;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
