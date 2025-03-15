@@ -18,7 +18,10 @@ public class GameController : MonoBehaviour
 
     [SerializeField] public float weaponDamage;
 
-    [SerializeField] GameObject spiderPrefab;
+    [SerializeField] GameObject spiderBase;
+    [SerializeField] GameObject spiderHighHealth;
+    [SerializeField] GameObject spiderHighSpeed;
+    [SerializeField] GameObject spiderHighDamage;
 
     [SerializeField] GameObject bullet;
 
@@ -176,6 +179,10 @@ public class GameController : MonoBehaviour
             }
 
         }
+
+
+        //enemy variants spawn at higher waves
+
 
         Instantiate(spiderPrefab, spawnPosition, Quaternion.identity);
     }
