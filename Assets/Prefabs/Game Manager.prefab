@@ -128,7 +128,10 @@ MonoBehaviour:
   insideRVSceneString: insideRV
   baseSpawnTimer: 0
   weaponDamage: 10
-  spiderPrefab: {fileID: 1953897521899650631, guid: 39d73ddbdca6aab419cc84852cd7d7ec, type: 3}
+  spiderBase: {fileID: 1953897521899650631, guid: 39d73ddbdca6aab419cc84852cd7d7ec, type: 3}
+  spiderHighHealth: {fileID: 7915016104209999192, guid: fcba034776313fc4d9360a46a5bdbd74, type: 3}
+  spiderHighSpeed: {fileID: 909107272449156959, guid: 8195f64b784d8774aafe4ea9568552ca, type: 3}
+  spiderHighDamage: {fileID: 2879876259941765039, guid: efd7269b014292f4a9e7a8a4ce52c69a, type: 3}
   bullet: {fileID: 7266536223132384290, guid: 92b23c32b730b344882ba55060a754d7, type: 3}
   waveNumberText: {fileID: 7720409101861815290}
   waveSpawned: 0

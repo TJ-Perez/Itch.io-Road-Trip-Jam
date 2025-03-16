@@ -23,6 +23,8 @@ public class GameController : MonoBehaviour
     [SerializeField] GameObject spiderHighSpeed;
     [SerializeField] GameObject spiderHighDamage;
 
+    GameObject[] spiderVariants;
+
     [SerializeField] GameObject bullet;
 
     [SerializeField] public GameObject waveNumberText;
@@ -67,6 +69,8 @@ public class GameController : MonoBehaviour
         // Start is called once before the first execution of Update after the MonoBehaviour is created
         void Start()
     {
+
+        spiderVariants = new GameObject[] {spiderBase, spiderHighDamage, spiderHighHealth, spiderHighSpeed };
         bulletCooldownTimer = 1/bulletsPerSecond;
         spawnTimer = baseSpawnTimer;
         enemiesToSpawnForWave = baseEnemiesPerWave;
@@ -183,8 +187,26 @@ public class GameController : MonoBehaviour
 
         //enemy variants spawn at higher waves
 
-
-        Instantiate(spiderPrefab, spawnPosition, Quaternion.identity);
+        if (currentWave == 1)
+        {
+            Instantiate(spiderBase, spawnPosition, Quaternion.identity);
+        }
+        else if (currentWave == 2)
+        {
+            Instantiate(spiderVariants[UnityEngine.Random.Range(0, 2)], spawnPosition, Quaternion.identity);
+        }
+        else if (currentWave == 3)
+        {
+            Instantiate(spiderVariants[UnityEngine.Random.Range(0, 3)], spawnPosition, Quaternion.identity);
+        }
+        else if (currentWave == 4)
+        {
+            Instantiate(spiderVariants[UnityEngine.Random.Range(0, 4)], spawnPosition, Quaternion.identity);
+        }
+        else
+        {
+            Instantiate(spiderVariants[UnityEngine.Random.Range(1, 4)], spawnPosition, Quaternion.identity);
+        }
     }
     public void OnHit(float damage)
     {
