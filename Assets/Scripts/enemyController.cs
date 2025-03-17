@@ -16,6 +16,9 @@ public class EnemyController : MonoBehaviour
 
     [SerializeField] AudioClip enemyDeathSound;
     [SerializeField] AudioClip enemyHitSound;
+    [SerializeField] AudioClip spiderExplosionSound;
+
+    [SerializeField] private AudioSource soundEffectPlayer;
 
     [SerializeField] Animator enemyAnimator;
 
@@ -35,6 +38,11 @@ public class EnemyController : MonoBehaviour
         if(attackTarget == null)
         {
             attackTarget = GameObject.FindGameObjectWithTag("RV");
+        }
+
+        if (soundEffectPlayer == null)
+        {
+            soundEffectPlayer = GameObject.FindGameObjectWithTag("soundEffectSource").GetComponent<AudioSource>();
         }
 
         if (gameController == null)
@@ -91,7 +99,7 @@ public class EnemyController : MonoBehaviour
             gameController.OnHit(damage);
             floatingHealthBar.gameObject.SetActive(false);
             enemyAnimator.SetBool("shouldExplode", true);
-            //play sound for explosion?
+            soundEffectPlayer.PlayOneShot(spiderExplosionSound);
 
             //wait for duration of explosion animation
             StartCoroutine(DelayDestroyBySeconds(.5f));
