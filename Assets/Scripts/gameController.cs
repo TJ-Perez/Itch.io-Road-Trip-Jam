@@ -53,8 +53,6 @@ public class GameController : MonoBehaviour
     [SerializeField] GameObject roadBackground;
     [SerializeField] GameObject waveUICanvas;
 
-    //[SerializeField] Sprite outsideRV;
-
     public static GameController Instance;
 
     private void Awake()
@@ -70,7 +68,7 @@ public class GameController : MonoBehaviour
     }
 
         // Start is called once before the first execution of Update after the MonoBehaviour is created
-        void Start()
+    void Start()
     {
 
         spiderVariants = new GameObject[] {spiderBase, spiderHighDamage, spiderHighHealth, spiderHighSpeed };
@@ -81,6 +79,9 @@ public class GameController : MonoBehaviour
 
         if (SceneManager.GetActiveScene().name == outsideRVSceneString)
         {
+            healthBarCanvas.SetActive(true);
+            roadBackground.SetActive(true);
+            waveUICanvas.SetActive(true);
             Cursor.SetCursor(cursor, Vector2.zero, CursorMode.Auto);
         }
     }
@@ -213,13 +214,14 @@ public class GameController : MonoBehaviour
 
     public void LoadGame()
     {
-        SceneManager.LoadScene(outsideRVSceneString);
-
-        waveNumberText.GetComponent<TextMeshProUGUI>().SetText("Wave: " + currentWave);
-        GetComponent<AudioSource>().Play();
+        SceneManager.LoadScene(insideRVSceneString);
 
         healthBarCanvas.SetActive(true);
         roadBackground.SetActive(true);
         waveUICanvas.SetActive(true);
+
+        waveNumberText.GetComponent<TextMeshProUGUI>().SetText("Wave: " + currentWave);
+        GetComponent<AudioSource>().Play();
+
     }
 }
