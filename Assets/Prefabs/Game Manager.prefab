@@ -33,7 +33,7 @@ RectTransform:
   m_Father: {fileID: 5977183004414308102}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -88,7 +88,7 @@ GameObject:
   - component: {fileID: 4737813956563418897}
   m_Layer: 0
   m_Name: Game Manager
-  m_TagString: Untagged
+  m_TagString: GameController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -141,6 +141,9 @@ MonoBehaviour:
   totalHealth: 200
   currentHealth: 200
   rvFloatingHealthBar: {fileID: 4305585054371057529}
+  healthBarCanvas: {fileID: 8312280408114211337}
+  roadBackground: {fileID: 5269986938390104253}
+  waveUICanvas: {fileID: 5182336895334651305}
 --- !u!82 &4737813956563418897
 AudioSource:
   m_ObjectHideFlags: 0
@@ -287,12 +290,12 @@ GameObject:
   - component: {fileID: 1314042866596491739}
   - component: {fileID: 4646949918717594423}
   m_Layer: 5
-  m_Name: UI Canvas
+  m_Name: Wave UI Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &8406691606589561737
 RectTransform:
   m_ObjectHideFlags: 0
@@ -392,7 +395,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4939335650811345002
 Transform:
   m_ObjectHideFlags: 0
@@ -797,7 +800,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &7575900349379741335
 RectTransform:
   m_ObjectHideFlags: 0
