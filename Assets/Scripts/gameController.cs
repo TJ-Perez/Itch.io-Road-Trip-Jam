@@ -49,7 +49,10 @@ public class GameController : MonoBehaviour
 
     [SerializeField] FloatingHealthBar rvFloatingHealthBar;
 
-    //[SerializeField] Sprite insideRV;
+    [SerializeField] GameObject healthBarCanvas;
+    [SerializeField] GameObject roadBackground;
+    [SerializeField] GameObject waveUICanvas;
+
     //[SerializeField] Sprite outsideRV;
 
     public static GameController Instance;
@@ -75,10 +78,6 @@ public class GameController : MonoBehaviour
         spawnTimer = baseSpawnTimer;
         enemiesToSpawnForWave = baseEnemiesPerWave;
         enemiesRemainingCurrentWave = enemiesToSpawnForWave;
-
-        waveNumberText.GetComponent<TextMeshProUGUI>().SetText("Wave: " + currentWave);
-
-        GetComponent<AudioSource>().Play();
 
         if (SceneManager.GetActiveScene().name == outsideRVSceneString)
         {
@@ -127,13 +126,11 @@ public class GameController : MonoBehaviour
         if (SceneManager.GetActiveScene().name == outsideRVSceneString)
         {
             SceneManager.LoadScene(insideRVSceneString);
-            //gameObject.GetComponent<SpriteRenderer>().sprite = outsideRV;
         }
 
         else
         {
             SceneManager.LoadScene(outsideRVSceneString);
-            //gameObject.GetComponent<SpriteRenderer>().sprite = insideRV;
         }
     }
 
@@ -212,5 +209,17 @@ public class GameController : MonoBehaviour
     {
         currentHealth -= damage;
         rvFloatingHealthBar.UpdateHealthBar(currentHealth, totalHealth);
+    }
+
+    public void LoadGame()
+    {
+        SceneManager.LoadScene(outsideRVSceneString);
+
+        waveNumberText.GetComponent<TextMeshProUGUI>().SetText("Wave: " + currentWave);
+        GetComponent<AudioSource>().Play();
+
+        healthBarCanvas.SetActive(true);
+        roadBackground.SetActive(true);
+        waveUICanvas.SetActive(true);
     }
 }
