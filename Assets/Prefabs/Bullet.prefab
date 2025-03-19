@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 7266536223132384290}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.23607436, y: -3.0362778, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 5.0128, y: 5.0128, z: 5.0128}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -131,6 +131,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletSpeed: 3
+  bulletStartingOffset: 90
 --- !u!82 &7421535070363653759
 AudioSource:
   m_ObjectHideFlags: 0

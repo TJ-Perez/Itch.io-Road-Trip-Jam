@@ -11,12 +11,12 @@ public class BulletController : MonoBehaviour
     {
         StartCoroutine(SelfDestruct());
 
-        Vector3 mousePos = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>().ScreenToWorldPoint(Input.mousePosition);
+        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
         gameObject.GetComponent<Rigidbody2D>().gravityScale = 0;
         Vector2 bulletVector = Vector2.MoveTowards(transform.position, mousePos, bulletSpeed);
         gameObject.GetComponent<Rigidbody2D>().linearVelocity = bulletVector;
-        gameObject.transform.transform.Rotate(0, 0, Mathf.Atan2(bulletVector.y, bulletVector.x) * Mathf.Rad2Deg);
+        gameObject.transform.Rotate(0, 0, Mathf.Atan2(bulletVector.y, bulletVector.x) * Mathf.Rad2Deg);
     }
 
     // Update is called once per frame
