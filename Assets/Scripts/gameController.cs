@@ -102,7 +102,6 @@ public class GameController : MonoBehaviour
             currentWave++;
             waveNumberText.GetComponent<TextMeshProUGUI>().SetText("Wave: " + currentWave);
             SwitchView();
-            //waveSpawned = false;
         }
 
         if (bulletCooldownTimer > 0)
@@ -114,7 +113,9 @@ public class GameController : MonoBehaviour
         {
             if (Input.GetMouseButton(0) && bulletCooldownTimer <= 0)
             {
-                Instantiate(bullet, transform.position, Quaternion.identity);
+                GameObject turret = GameObject.FindGameObjectWithTag("turret");
+
+                Instantiate(bullet, turret.transform.position, Quaternion.identity);
                 bulletCooldownTimer = 1 / bulletsPerSecond;
             }
         }
@@ -132,6 +133,7 @@ public class GameController : MonoBehaviour
         else
         {
             SceneManager.LoadScene(outsideRVSceneString);
+            Cursor.SetCursor(cursor, Vector2.zero, CursorMode.Auto);
         }
     }
 
@@ -179,7 +181,6 @@ public class GameController : MonoBehaviour
             {
                 spawnPosition.x += 4.8f;
             }
-
         }
 
 
