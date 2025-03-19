@@ -102,7 +102,6 @@ public class GameController : MonoBehaviour
             currentWave++;
             waveNumberText.GetComponent<TextMeshProUGUI>().SetText("Wave: " + currentWave);
             SwitchView();
-            //waveSpawned = false;
         }
 
         if (bulletCooldownTimer > 0)
@@ -134,6 +133,7 @@ public class GameController : MonoBehaviour
         else
         {
             SceneManager.LoadScene(outsideRVSceneString);
+            Cursor.SetCursor(cursor, Vector2.zero, CursorMode.Auto);
         }
     }
 
