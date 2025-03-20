@@ -55,6 +55,12 @@ public class GameController : MonoBehaviour
 
     public static GameController Instance;
 
+    [SerializeField] private AudioSource soundEffectPlayer;
+
+    [SerializeField] AudioClip mainMenuStartGame;
+
+    [SerializeField] GameObject upgradeCanvas;
+
     private void Awake()
     {
         if (Instance != null)
@@ -83,6 +89,16 @@ public class GameController : MonoBehaviour
             roadBackground.SetActive(true);
             waveUICanvas.SetActive(true);
             Cursor.SetCursor(cursor, Vector2.zero, CursorMode.Auto);
+        }
+
+        if (soundEffectPlayer == null)
+        {
+            soundEffectPlayer = GameObject.FindGameObjectWithTag("soundEffectSource").GetComponent<AudioSource>();
+        }
+
+        if (upgradeCanvas == null)
+        {
+            upgradeCanvas = GameObject.FindGameObjectWithTag("UpgradeCanvas");
         }
     }
 
@@ -129,6 +145,7 @@ public class GameController : MonoBehaviour
         {
             SceneManager.LoadScene(insideRVSceneString);
             Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
+            StartCoroutine(DelayUpgradeCanvasLoad());
         }
 
         else
@@ -136,6 +153,12 @@ public class GameController : MonoBehaviour
             SceneManager.LoadScene(outsideRVSceneString);
             Cursor.SetCursor(cursor, Vector2.zero, CursorMode.Auto);
         }
+    }
+
+    IEnumerator DelayUpgradeCanvasLoad()
+    {
+        yield return new WaitForSeconds(1);
+        upgradeCanvas.SetActive(true);
     }
 
     IEnumerator SpawnEnemies(int numEnemiesToSpawn, float spawnTimer)
@@ -216,6 +239,7 @@ public class GameController : MonoBehaviour
 
     public void LoadGame()
     {
+        soundEffectPlayer.PlayOneShot(mainMenuStartGame);
         SceneManager.LoadScene(insideRVSceneString);
 
         healthBarCanvas.SetActive(true);

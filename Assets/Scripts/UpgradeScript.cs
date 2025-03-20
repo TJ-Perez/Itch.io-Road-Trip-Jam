@@ -7,6 +7,8 @@ public class UpgradeScript : MonoBehaviour
     GameController gameController;
 
     [SerializeField] FloatingHealthBar RVHealthBar;
+    [SerializeField] AudioSource soundEffectPlayer;
+    [SerializeField] AudioClip upgradeSound;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -19,6 +21,10 @@ public class UpgradeScript : MonoBehaviour
             gameObject.SetActive(false);
         }
 
+        if (soundEffectPlayer == null)
+        {
+            soundEffectPlayer = GameObject.FindGameObjectWithTag("soundEffectSource").GetComponent<AudioSource>();
+        }
     }
 
     // Update is called once per frame
@@ -27,17 +33,19 @@ public class UpgradeScript : MonoBehaviour
         
     }
 
-    public void healthUpgrade()
+    public void HealthUpgrade()
     {
         gameController.totalHealth += 40;
         gameController.currentHealth += 40;
         RVHealthBar.UpdateHealthBar(gameController.currentHealth, gameController.totalHealth);
+        soundEffectPlayer.PlayOneShot(upgradeSound);
         gameObject.SetActive(false);
     }
 
-    public void damageUpgrade()
+    public void DamageUpgrade()
     {
         gameController.weaponDamage += 2;
+        soundEffectPlayer.PlayOneShot(upgradeSound);
         gameObject.SetActive(false);
     }
 
