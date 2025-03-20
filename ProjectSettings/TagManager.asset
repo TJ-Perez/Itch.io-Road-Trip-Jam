@@ -9,6 +9,7 @@ TagManager:
   - RV
   - turret
   - RVHealthBar
+  - UpgradeCanvas
   layers:
   - Default
   - TransparentFX

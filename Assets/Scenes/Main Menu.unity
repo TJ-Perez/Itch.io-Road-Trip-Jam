@@ -732,6 +732,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Game Manager
       objectReference: {fileID: 0}
+    - target: {fileID: 2370324505955692020, guid: 3c50f55b2f266904caa3805892462a47, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: DamageUpgrade
+      objectReference: {fileID: 0}
     - target: {fileID: 4409952232268998677, guid: 3c50f55b2f266904caa3805892462a47, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.22775085
@@ -772,6 +776,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4924917099201333636, guid: 3c50f55b2f266904caa3805892462a47, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: HealthUpgrade
+      objectReference: {fileID: 0}
+    - target: {fileID: 6136201153580663399, guid: 3c50f55b2f266904caa3805892462a47, type: 3}
+      propertyPath: mainMenuStartGame
+      value: 
+      objectReference: {fileID: 8300000, guid: 84389417abcc3924fbf926c7a29c7d47, type: 3}
+    - target: {fileID: 6136201153580663399, guid: 3c50f55b2f266904caa3805892462a47, type: 3}
+      propertyPath: soundEffectPlayer
+      value: 
+      objectReference: {fileID: 1973272165}
     - target: {fileID: 7357363275846165957, guid: 3c50f55b2f266904caa3805892462a47, type: 3}
       propertyPath: m_TagString
       value: RVHealthBar
@@ -792,6 +808,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 811c54d5a4107b3409a479eddd3b88ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!82 &1973272165 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 4187222748788597895, guid: 3c50f55b2f266904caa3805892462a47, type: 3}
+  m_PrefabInstance: {fileID: 1973272163}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2066391041
 GameObject:
   m_ObjectHideFlags: 0
