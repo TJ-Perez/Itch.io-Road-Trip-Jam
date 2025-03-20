@@ -8,6 +8,7 @@ TagManager:
   - soundEffectSource
   - RV
   - turret
+  - RVHealthBar
   layers:
   - Default
   - TransparentFX
