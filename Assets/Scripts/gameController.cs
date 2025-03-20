@@ -29,7 +29,7 @@ public class GameController : MonoBehaviour
 
     [SerializeField] public GameObject waveNumberText;
 
-    int currentWave = 1;
+    public int currentWave = 1;
 
     public bool waveSpawned = false;
 
@@ -128,6 +128,7 @@ public class GameController : MonoBehaviour
         if (SceneManager.GetActiveScene().name == outsideRVSceneString)
         {
             SceneManager.LoadScene(insideRVSceneString);
+            Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
         }
 
         else
