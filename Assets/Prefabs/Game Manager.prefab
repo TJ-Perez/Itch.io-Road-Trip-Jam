@@ -671,6 +671,7 @@ MonoBehaviour:
   cursor: {fileID: 2800000, guid: 8039c2e494f8d86498eecf6825c31aaf, type: 3}
   outsideRVSceneString: outsideRV
   insideRVSceneString: insideRV
+  mainMenuString: mainMenu
   baseSpawnTimer: 0
   weaponDamage: 10
   spiderBase: {fileID: 1953897521899650631, guid: 39d73ddbdca6aab419cc84852cd7d7ec, type: 3}
@@ -693,6 +694,10 @@ MonoBehaviour:
   soundEffectPlayer: {fileID: 4187222748788597895}
   mainMenuStartGame: {fileID: 8300000, guid: 84389417abcc3924fbf926c7a29c7d47, type: 3}
   upgradeCanvas: {fileID: 4933648641774322322}
+  musicPlayer: {fileID: 4737813956563418897}
+  mainMenuMusic: {fileID: 8300000, guid: 47772e7441e08e84da612be5962dc1ff, type: 3}
+  insideRVMusic: {fileID: 8300000, guid: 05aba416278f237469018d85ab27a7a9, type: 3}
+  outsideRVMusic: {fileID: 8300000, guid: 1a235b66fdda40f4dbae166b470d8f63, type: 3}
 --- !u!82 &4737813956563418897
 AudioSource:
   m_ObjectHideFlags: 0

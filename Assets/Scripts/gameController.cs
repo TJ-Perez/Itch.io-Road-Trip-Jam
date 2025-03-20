@@ -11,6 +11,7 @@ public class GameController : MonoBehaviour
     [SerializeField] Texture2D cursor;
     [SerializeField] public string outsideRVSceneString;
     [SerializeField] public string insideRVSceneString;
+    [SerializeField] public string mainMenuString;
 
     [SerializeField] float baseSpawnTimer;
     
@@ -61,6 +62,12 @@ public class GameController : MonoBehaviour
 
     [SerializeField] GameObject upgradeCanvas;
 
+    [SerializeField] AudioSource musicPlayer;
+
+    [SerializeField] AudioClip mainMenuMusic;
+    [SerializeField] AudioClip insideRVMusic;
+    [SerializeField] AudioClip outsideRVMusic;
+
     private void Awake()
     {
         if (Instance != null)
@@ -76,20 +83,17 @@ public class GameController : MonoBehaviour
         // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        if (musicPlayer == null)
+        {
+            musicPlayer = gameObject.GetComponent<AudioSource>();
+        }
+
 
         spiderVariants = new GameObject[] {spiderBase, spiderHighDamage, spiderHighHealth, spiderHighSpeed };
         bulletCooldownTimer = 1/bulletsPerSecond;
         spawnTimer = baseSpawnTimer;
         enemiesToSpawnForWave = baseEnemiesPerWave;
         enemiesRemainingCurrentWave = enemiesToSpawnForWave;
-
-        if (SceneManager.GetActiveScene().name == outsideRVSceneString)
-        {
-            healthBarCanvas.SetActive(true);
-            roadBackground.SetActive(true);
-            waveUICanvas.SetActive(true);
-            Cursor.SetCursor(cursor, Vector2.zero, CursorMode.Auto);
-        }
 
         if (soundEffectPlayer == null)
         {
@@ -100,6 +104,21 @@ public class GameController : MonoBehaviour
         {
             upgradeCanvas = GameObject.FindGameObjectWithTag("UpgradeCanvas");
         }
+
+        if (SceneManager.GetActiveScene().name == outsideRVSceneString)
+        {
+            healthBarCanvas.SetActive(true);
+            roadBackground.SetActive(true);
+            waveUICanvas.SetActive(true);
+            Cursor.SetCursor(cursor, Vector2.zero, CursorMode.Auto);
+        }
+
+        //if (SceneManager.GetActiveScene().name == mainMenuString)
+        //{
+        //    musicPlayer.clip = mainMenuMusic;
+        //    musicPlayer.loop = true;
+        //    musicPlayer.Play();
+        //}
     }
 
     // Update is called once per frame
