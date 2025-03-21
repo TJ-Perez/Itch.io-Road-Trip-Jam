@@ -68,6 +68,8 @@ public class GameController : MonoBehaviour
     [SerializeField] AudioClip insideRVMusic;
     [SerializeField] AudioClip outsideRVMusic;
 
+    public Boolean shotgunUpgrade = false;
+
     private void Awake()
     {
         if (Instance != null)
@@ -113,12 +115,6 @@ public class GameController : MonoBehaviour
             Cursor.SetCursor(cursor, Vector2.zero, CursorMode.Auto);
         }
 
-        //if (SceneManager.GetActiveScene().name == mainMenuString)
-        //{
-        //    musicPlayer.clip = mainMenuMusic;
-        //    musicPlayer.loop = true;
-        //    musicPlayer.Play();
-        //}
     }
 
     // Update is called once per frame
@@ -149,8 +145,16 @@ public class GameController : MonoBehaviour
             if (Input.GetMouseButton(0) && bulletCooldownTimer <= 0)
             {
                 GameObject turret = GameObject.FindGameObjectWithTag("turret");
+                if (shotgunUpgrade)
+                {
+                    //TODO shotgun fires larger bullet slugs
+                    Instantiate(bullet, turret.transform.position, Quaternion.identity);
 
-                Instantiate(bullet, turret.transform.position, Quaternion.identity);
+                }
+                else
+                {
+                    Instantiate(bullet, turret.transform.position, Quaternion.identity);
+                }
                 bulletCooldownTimer = 1 / bulletsPerSecond;
             }
         }

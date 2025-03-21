@@ -49,4 +49,11 @@ public class UpgradeScript : MonoBehaviour
         gameObject.SetActive(false);
     }
 
+    public void ShotgunUpgrade()
+    {
+        gameController.shotgunUpgrade = true;
+        soundEffectPlayer.PlayOneShot(upgradeSound);
+        gameObject.SetActive(false);
+    }
+
 }
