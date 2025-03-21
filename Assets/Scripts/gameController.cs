@@ -199,7 +199,10 @@ public class GameController : MonoBehaviour
 
     public void SpawnEnemy()
     {
-        Vector3 spawnPosition = new Vector3(UnityEngine.Random.Range(0, 7.45f), UnityEngine.Random.Range(0, 5));
+        float minimumX = 5.8f;
+        float minimumY = 5;
+
+        Vector3 spawnPosition = new Vector3(UnityEngine.Random.Range(0, 8.45f), UnityEngine.Random.Range(0, 6));
 
         if (UnityEngine.Random.Range(0, 2) == 1) {
             spawnPosition.x *= -1;
@@ -210,24 +213,24 @@ public class GameController : MonoBehaviour
             spawnPosition.y *= -1;
         }
 
-        if (Math.Abs(spawnPosition.y) < 3 && Math.Abs(spawnPosition.x) < 4.8f)
+        if (Math.Abs(spawnPosition.y) < minimumY && Math.Abs(spawnPosition.x) < minimumX)
         {
             if(spawnPosition.y < 0)
             {
-                spawnPosition.y -= 3;
+                spawnPosition.y -= minimumY;
             }
             else
             {
-                spawnPosition.y += 3;
+                spawnPosition.y += minimumY;
             }
 
             if (spawnPosition.x < 0)
             {
-                spawnPosition.x -= 4.8f;
+                spawnPosition.x -= minimumX;
             }
             else
             {
-                spawnPosition.x += 4.8f;
+                spawnPosition.x += minimumX;
             }
         }
 
