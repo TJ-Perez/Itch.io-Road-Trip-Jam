@@ -27,6 +27,7 @@ public class GameController : MonoBehaviour
     GameObject[] spiderVariants;
 
     [SerializeField] GameObject bullet;
+    [SerializeField] GameObject bulletSlug;
 
     [SerializeField] public GameObject waveNumberText;
 
@@ -67,6 +68,8 @@ public class GameController : MonoBehaviour
     [SerializeField] AudioClip mainMenuMusic;
     [SerializeField] AudioClip insideRVMusic;
     [SerializeField] AudioClip outsideRVMusic;
+
+    public Boolean shotgunUpgrade = false;
 
     private void Awake()
     {
@@ -113,12 +116,6 @@ public class GameController : MonoBehaviour
             Cursor.SetCursor(cursor, Vector2.zero, CursorMode.Auto);
         }
 
-        //if (SceneManager.GetActiveScene().name == mainMenuString)
-        //{
-        //    musicPlayer.clip = mainMenuMusic;
-        //    musicPlayer.loop = true;
-        //    musicPlayer.Play();
-        //}
     }
 
     // Update is called once per frame
@@ -149,8 +146,15 @@ public class GameController : MonoBehaviour
             if (Input.GetMouseButton(0) && bulletCooldownTimer <= 0)
             {
                 GameObject turret = GameObject.FindGameObjectWithTag("turret");
+                if (shotgunUpgrade)
+                {
+                    Instantiate(bulletSlug, turret.transform.position, Quaternion.identity);
 
-                Instantiate(bullet, turret.transform.position, Quaternion.identity);
+                }
+                else
+                {
+                    Instantiate(bullet, turret.transform.position, Quaternion.identity);
+                }
                 bulletCooldownTimer = 1 / bulletsPerSecond;
             }
         }
@@ -178,6 +182,7 @@ public class GameController : MonoBehaviour
     {
         yield return new WaitForSeconds(1);
         upgradeCanvas.SetActive(true);
+        upgradeCanvas.GetComponent<UpgradeScript>().RefreshUpgrades();
     }
 
     IEnumerator SpawnEnemies(int numEnemiesToSpawn, float spawnTimer)
