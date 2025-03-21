@@ -27,6 +27,7 @@ public class GameController : MonoBehaviour
     GameObject[] spiderVariants;
 
     [SerializeField] GameObject bullet;
+    [SerializeField] GameObject bulletSlug;
 
     [SerializeField] public GameObject waveNumberText;
 
@@ -147,8 +148,7 @@ public class GameController : MonoBehaviour
                 GameObject turret = GameObject.FindGameObjectWithTag("turret");
                 if (shotgunUpgrade)
                 {
-                    //TODO shotgun fires larger bullet slugs
-                    Instantiate(bullet, turret.transform.position, Quaternion.identity);
+                    Instantiate(bulletSlug, turret.transform.position, Quaternion.identity);
 
                 }
                 else
@@ -182,6 +182,7 @@ public class GameController : MonoBehaviour
     {
         yield return new WaitForSeconds(1);
         upgradeCanvas.SetActive(true);
+        upgradeCanvas.GetComponent<UpgradeScript>().RefreshUpgrades();
     }
 
     IEnumerator SpawnEnemies(int numEnemiesToSpawn, float spawnTimer)

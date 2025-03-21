@@ -247,7 +247,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -191.86667, y: 189}
+  m_AnchoredPosition: {x: -191.86667, y: 207}
   m_SizeDelta: {x: 324.0667, y: 61.11609}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8395614175609511376
@@ -679,6 +679,7 @@ MonoBehaviour:
   spiderHighSpeed: {fileID: 909107272449156959, guid: 8195f64b784d8774aafe4ea9568552ca, type: 3}
   spiderHighDamage: {fileID: 2879876259941765039, guid: efd7269b014292f4a9e7a8a4ce52c69a, type: 3}
   bullet: {fileID: 7266536223132384290, guid: 92b23c32b730b344882ba55060a754d7, type: 3}
+  bulletSlug: {fileID: 8912460720562497613, guid: edbb284ef850bf24b9eca13c8ec2daed, type: 3}
   waveNumberText: {fileID: 7720409101861815290}
   currentWave: 1
   waveSpawned: 0
@@ -698,6 +699,7 @@ MonoBehaviour:
   mainMenuMusic: {fileID: 8300000, guid: 47772e7441e08e84da612be5962dc1ff, type: 3}
   insideRVMusic: {fileID: 8300000, guid: 05aba416278f237469018d85ab27a7a9, type: 3}
   outsideRVMusic: {fileID: 8300000, guid: 1a235b66fdda40f4dbae166b470d8f63, type: 3}
+  shotgunUpgrade: 0
 --- !u!82 &4737813956563418897
 AudioSource:
   m_ObjectHideFlags: 0
@@ -860,9 +862,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Repair Speed
-
-'
+  m_text: Shotgun Slugs
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1087,9 +1087,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76222e46d1eea5b439b9ee3b43d0f057, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameController: {fileID: 6136201153580663399}
   RVHealthBar: {fileID: 0}
   soundEffectPlayer: {fileID: 0}
   upgradeSound: {fileID: 8300000, guid: 49661facd9e7fdd4f9ae5a123788add6, type: 3}
+  shotgunUpgradeButton: {fileID: 6632635799773691013}
 --- !u!1 &5182336895334651305
 GameObject:
   m_ObjectHideFlags: 0
@@ -1292,7 +1294,7 @@ GameObject:
   - component: {fileID: 4533360392801406194}
   - component: {fileID: 3687222630452996720}
   m_Layer: 5
-  m_Name: Repair Speed Upgrade Button
+  m_Name: Shotgun Upgrade
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1854,7 +1856,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -191.86667, y: 108.35805}
+  m_AnchoredPosition: {x: -191.86667, y: 129}
   m_SizeDelta: {x: 324.0667, y: 61.116104}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6603132853376270034

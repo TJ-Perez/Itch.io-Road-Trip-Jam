@@ -4,12 +4,13 @@ using UnityEngine;
 public class UpgradeScript : MonoBehaviour
 {
 
-    GameController gameController;
+    [SerializeField] GameController gameController;
 
     [SerializeField] FloatingHealthBar RVHealthBar;
     [SerializeField] AudioSource soundEffectPlayer;
     [SerializeField] AudioClip upgradeSound;
 
+    [SerializeField] GameObject shotgunUpgradeButton;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -33,6 +34,18 @@ public class UpgradeScript : MonoBehaviour
         
     }
 
+    public void RefreshUpgrades()
+    {
+        if (gameController.currentWave >= 3 && gameController.shotgunUpgrade == false)
+        {
+            shotgunUpgradeButton.SetActive(true);
+        }
+        else
+        {
+            shotgunUpgradeButton.SetActive(false);
+        }
+    }
+
     public void HealthUpgrade()
     {
         gameController.totalHealth += 40;
@@ -52,6 +65,7 @@ public class UpgradeScript : MonoBehaviour
     public void ShotgunUpgrade()
     {
         gameController.shotgunUpgrade = true;
+        gameController.weaponDamage += 1;
         soundEffectPlayer.PlayOneShot(upgradeSound);
         gameObject.SetActive(false);
     }
