@@ -49,7 +49,7 @@ public class GameController : MonoBehaviour
     [SerializeField] public float totalHealth;
     [SerializeField] public float currentHealth;
 
-    [SerializeField] FloatingHealthBar rvFloatingHealthBar;
+    [SerializeField] public FloatingHealthBar rvFloatingHealthBar;
 
     [SerializeField] GameObject healthBarCanvas;
     [SerializeField] GameObject roadBackground;
@@ -115,6 +115,9 @@ public class GameController : MonoBehaviour
             waveUICanvas.SetActive(true);
             Cursor.SetCursor(cursor, Vector2.zero, CursorMode.Auto);
         }
+
+        rvFloatingHealthBar.UpdateHealthBar(currentHealth, totalHealth);
+
 
     }
 
