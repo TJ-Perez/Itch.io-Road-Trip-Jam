@@ -687,7 +687,7 @@ MonoBehaviour:
   baseEnemiesPerWave: 3
   bulletsPerSecond: 5
   totalHealth: 200
-  currentHealth: 200
+  currentHealth: 180
   rvFloatingHealthBar: {fileID: 4305585054371057529}
   healthBarCanvas: {fileID: 8312280408114211337}
   roadBackground: {fileID: 5269986938390104253}
